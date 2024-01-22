@@ -1,6 +1,5 @@
 # Wygeneruj wszystkie liczby parzyste od 2 do 18 włącznie. 
 # Następnie zapisz każdą liczbę w osobnej linii do pliku o nazwie num.txt.
-
 myNum = []
 for num in range(2, 19):
     if num % 2 == 0:
@@ -71,5 +70,39 @@ with open  ('products.txt', "r") as file:
 
 print('---')
 
+"""
+Zapisz te dane do pliku tekstowego stock_prices.txt. 
+Każdą spółkę zapisz jako wiersz, który składa się z nazwy spółki 
+i ceny akcji, oddzielonych średnikiem. 
+Każdy wiersz zakończ znakiem nowej linii \n
+"""
 
+stock_data = {
+    'AAPL': 145.9,
+    'GOOG': 2680.7,
+    'TSLA': 712.6,
+    'AMZN': 3379.1
+}
 
+with open ("stock_prices.txt", "w") as file:
+    for stock, value in stock_data.items():
+        content = f"{stock};{value}"
+        file.write(content + '\n')
+
+print('---')
+
+first_name = 'Jan'
+last_name = 'Kowalski'
+weight = 75.5
+height = 1.85
+date_of_birth = '1990-01-01'
+chronic_conditions = ['hypertension', 'diabetes']
+medications = {
+    'hypertension_medications': ['enalapril', 'hydrochlorothiazide'],
+    'diabetes_medications': ['metformin'],
+}
+
+with open ("patient_data.txt", "w") as file:
+    save = f'''First name: {first_name}\nLast name: {last_name}\nWeight: {weight} kg\nHeight: {height} m\nDate of birth: {date_of_birth}\nChronic conditions: {chronic_conditions[0]}, {chronic_conditions[1]}\nHypertension medications: {medications["hypertension_medications"][0]}, {medications["hypertension_medications"][1]}\nDiabetes medications: {medications['diabetes_medications'][0]}
+    '''
+    file.write(save)
